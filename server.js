@@ -39,6 +39,27 @@ app.post('/login',function(req,res){
     }
 })
 
+app.post('/testsso',function(req,res){
+    const ssouser=req.body.ssouser;
+    const ssopass=req.body.ssopass;
+
+    const examplessouser="jamie";
+    const examplessopass="juice";
+
+    if (ssouser===examplessouser && ssopass===examplessopass){
+        res.json({
+            success: true,
+            message: 'login success',
+            token: 'login token'
+        })
+    } else {
+        res.json({
+            success: false,
+            message: 'login failure'
+        })
+    }
+})
+
 app.listen(8000,function(){console.log('server is listening')})
 
 // app.listen(8000,function(){
